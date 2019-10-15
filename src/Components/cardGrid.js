@@ -68,8 +68,9 @@ const CardGrid = () => {
               autoComplete="off"
             />
         </form>
-        <Button onClick={() => setPage(page + 1)}>Next</Button>
         <Button onClick={() => setPage(page - 1)}>Previous</Button>
+        <Button onClick={() => setPage(page + 1)}>Next</Button>
+    
         <Grid>
             {info.map((item, index) => {
             return (
