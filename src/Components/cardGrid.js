@@ -10,7 +10,7 @@ Justify-content: center;
 flex-wrap: wrap;
 `;
 
-const Boxed = styled.button`
+const Button = styled.button`
 width: 15%;
 font-size: 2rem;
 color: yellow;
@@ -35,14 +35,13 @@ border-radius: 8px;
 const CardGrid = () => {
     const [info, setInfo] = useState([]);
     const [query, setQuery] = useState("");
-    const [page, setPage] = useState("");
+    const [page, setPage] = useState(1);
   
 
     useEffect(() => {
       axios
         .get(`https://swapi.co/api/people/?page=${page}`)
         .then(response => {
-          console.log(response);
           const name = response.data.results.filter(character => 
             character.name.toLowerCase().includes(query.toLowerCase())
             );
@@ -69,8 +68,8 @@ const CardGrid = () => {
               autoComplete="off"
             />
         </form>
-        <Boxed onClick={() => setPage(page + 1)}>Next</Boxed>
-        <Boxed onClick={() => setPage(page - 1)}>Previous</Boxed>
+        <Button onClick={() => setPage(page + 1)}>Next</Button>
+        <Button onClick={() => setPage(page - 1)}>Previous</Button>
         <Grid>
             {info.map((item, index) => {
             return (
