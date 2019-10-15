@@ -1,9 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import Character from './characterCard';
-import { Container, Row, Col } from 'reactstrap';
+import styled from "styled-components";
 
-
+const Grid = styled.div`
+width: 100%;
+display: flex;
+Justify-content: center;
+flex-wrap: wrap;
+`;
 
 const CardGrid = () => {
     const [info, setInfo] = useState([]);
@@ -20,8 +25,8 @@ const CardGrid = () => {
     }, []);
    
     return (
-      <Container>
-        <Row>
+        <div>
+        <Grid>
              {info.map((item, index) => {
             return (
               <Character 
@@ -34,8 +39,8 @@ const CardGrid = () => {
               />
             );
           })}
-       </Row>   
-      </Container>
+        </Grid>
+       </div>
     );
 };
 
