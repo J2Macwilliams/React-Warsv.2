@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import Character from './characterCard';
-
+import { Container, Row, Col } from 'reactstrap';
 
 
 
@@ -20,8 +20,8 @@ const CardGrid = () => {
     }, []);
    
     return (
-        <div>
-        <div>
+      <Container>
+        <Row>
              {info.map((item, index) => {
             return (
               <Character 
@@ -34,8 +34,8 @@ const CardGrid = () => {
               />
             );
           })}
-        </div>
-       </div>
+       </Row>   
+      </Container>
     );
 };
 
