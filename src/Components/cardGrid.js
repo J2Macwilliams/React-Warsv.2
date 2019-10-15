@@ -10,13 +10,37 @@ Justify-content: center;
 flex-wrap: wrap;
 `;
 
+const Boxed = styled.button`
+width: 15%;
+font-size: 2rem;
+color: yellow;
+background: black;
+border-radius: 8px;
+border: 2px solid black;
+margin: 5px;
+&:hover{
+  color: black;
+background: yellow;
+}
+`;
+
+const Input =styled.input`
+font-size:2rem;
+text-align: center;
+border: 2px solid black;
+border-radius: 8px;
+`;
+
+
 const CardGrid = () => {
     const [info, setInfo] = useState([]);
     const [query, setQuery] = useState("");
+    const [page, setPage] = useState("");
   
+
     useEffect(() => {
       axios
-        .get(`https://swapi.co/api/people/`)
+        .get(`https://swapi.co/api/people/?page=${page}`)
         .then(response => {
           console.log(response);
           const name = response.data.results.filter(character => 
@@ -27,26 +51,28 @@ const CardGrid = () => {
         .catch(error => {
           console.log("The data was not returned", error);
         });
-    }, [query]);
+    }, [query, page]);
     const handleInputChange = event => {
       setQuery(event.target.value);
     };
     return (
-        <div>
-           <form className="search">
-        <input
-          type="text"
-          onChange={handleInputChange}
-          value={query}
-          name="name"
-          tabIndex="0"
-          className="prompt search-name"
-          placeholder="search by name"
-          autoComplete="off"
-        />
-      </form>
+      <div>
+          <form className="search">
+            <Input
+              type="text"
+              onChange={handleInputChange}
+              value={query}
+              name="name"
+              tabIndex="0"
+              className="prompt search-name"
+              placeholder="search by name"
+              autoComplete="off"
+            />
+        </form>
+        <Boxed onClick={() => setPage(page + 1)}>Next</Boxed>
+        <Boxed onClick={() => setPage(page - 1)}>Previous</Boxed>
         <Grid>
-             {info.map((item, index) => {
+            {info.map((item, index) => {
             return (
               <Character 
                 key={index} 
@@ -59,7 +85,7 @@ const CardGrid = () => {
             );
           })}
         </Grid>
-       </div>
+      </div>
     );
 };
 
