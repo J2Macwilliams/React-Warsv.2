@@ -68,7 +68,7 @@ const CardGrid = () => {
               autoComplete="off"
             />
         </form>
-        <Button onClick={() => setPage(page - 1)}>Previous</Button>
+        <Button onClick={() => (page > 2) ? setPage(page - 1): setPage(1) }>Previous</Button>
         <Button onClick={() => setPage(page + 1)}>Next</Button>
     
         <Grid>
