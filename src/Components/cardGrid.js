@@ -12,20 +12,39 @@ flex-wrap: wrap;
 
 const CardGrid = () => {
     const [info, setInfo] = useState([]);
+    const [query, setQuery] = useState("");
   
     useEffect(() => {
       axios
         .get(`https://swapi.co/api/people/`)
         .then(response => {
-          setInfo(response.data.results)
+          console.log(response);
+          const name = response.data.results.filter(character => 
+            character.name.toLowerCase().includes(query.toLowerCase())
+            );
+          setInfo(name)
         })
         .catch(error => {
           console.log("The data was not returned", error);
         });
-    }, []);
-   
+    }, [query]);
+    const handleInputChange = event => {
+      setQuery(event.target.value);
+    };
     return (
         <div>
+           <form className="search">
+        <input
+          type="text"
+          onChange={handleInputChange}
+          value={query}
+          name="name"
+          tabIndex="0"
+          className="prompt search-name"
+          placeholder="search by name"
+          autoComplete="off"
+        />
+      </form>
         <Grid>
              {info.map((item, index) => {
             return (
