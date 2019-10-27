@@ -42,6 +42,7 @@ const CardGrid = () => {
       axios
         .get(`https://swapi.co/api/people/?page=${page}`)
         .then(response => {
+          console.log(response)
           const name = response.data.results.filter(character => 
             character.name.toLowerCase().includes(query.toLowerCase())
             );
@@ -51,12 +52,14 @@ const CardGrid = () => {
           console.log("The data was not returned", error);
         });
     }, [query, page]);
+
     const handleInputChange = event => {
       setQuery(event.target.value);
     };
+
     return (
       <div>
-          <form className="search">
+          <form>
             <Input
               type="text"
               onChange={handleInputChange}
@@ -68,6 +71,7 @@ const CardGrid = () => {
               autoComplete="off"
             />
         </form>
+
         <Button onClick={() => (page > 2) ? setPage(page - 1): setPage(1) }>Previous</Button>
         <Button onClick={() => setPage(page + 1)}>Next</Button>
     

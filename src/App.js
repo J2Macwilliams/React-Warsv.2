@@ -1,5 +1,8 @@
 import React from 'react';
+
 import CardGrid from './Components/cardGrid';
+import Path from './Components/Path';
+
 import styled from "styled-components";
 import './App.css';
 import bgrnd from "./sw-bg.jpg";
@@ -28,8 +31,8 @@ const App = () => {
       <Container>
         <h1 className="Header">React Wars</h1>
         <CardGrid />
+        <Path />
       </Container>
-      
     </div>
   );
 }
