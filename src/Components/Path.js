@@ -22,10 +22,6 @@ const Path = () => {
             <a href="https://github.com/J2Macwilliams/React-Warsv.2">
                 <Button>Code</Button>
             </a>
-            <a href="https://j2macwilliams.github.io/My-Portfolio/">
-                <Button>Portfolio</Button>
-            </a>
-            
         </div>
     )
 }
