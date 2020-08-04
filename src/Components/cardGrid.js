@@ -40,7 +40,7 @@ const CardGrid = () => {
 
     useEffect(() => {
       axios
-        .get(`https://swapi.co/api/people/?page=${page}`)
+        .get(`https://swapi.dev/api/people/?page=${page}`)
         .then(response => {
           console.log(response)
           const name = response.data.results.filter(character => 
