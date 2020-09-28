@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import CardGrid from './Components/cardGrid';
+import CardGrid from "./Components/cardGrid";
 
-import { Container, Background} from './Components/Styled'
-import './App.css';
+import { Container, Background } from "./Components/Styled";
+import "./App.css";
 
 const App: React.FC = () => {
 	// Try to think through what state you'll need for this app before starting. Then build out
@@ -14,13 +14,13 @@ const App: React.FC = () => {
 	// sync up with, if any.
 
 	return (
-		<div className='App'>
+		<div className="App">
 			<Container>
 				<Background>
 					<CardGrid />
-				</Background>
-			</Container>
-		</div>
+  </Background>
+  </Container>
+  </div>
 	);
 };
 
