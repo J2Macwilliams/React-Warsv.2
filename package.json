@@ -13,15 +13,16 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
-    "styled-components": "^4.4.0",
-    "typescript": "^4.0.3"
+    "styled-components": "^4.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./"
+    "tsc": "tsc",
+    "lint": "eslint ./",
+    "lint:fix": "yarn lint --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,18 +40,19 @@
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "2.x",
-    "eslint": "6.x",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-typescript": "^11.0.0",
     "eslint-config-prettier": "^6.12.0",
-    "eslint-config-react-app": "5.2.1",
     "eslint-plugin-flowtype": "4.0.0",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "2.0.0",
     "source-map-loader": "^1.1.0",
-    "ts-loader": "^8.0.4"
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3"
   }
 }
