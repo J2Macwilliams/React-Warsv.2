@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Character from "./CharacterCard";
 import { Input, Button, Grid } from "./Styled";
-type InfoNode = {
-	key: number;
-	id: number
+
+interface InfoNode {
+	id: number;
 	person: string;
-	birth_year: string;
+	birthYear: string;
 	height: string;
 	mass: string;
-	skin_color: string;
+	skinColor: string;
 }
-
 
 const CardGrid: React.FC = () => {
 	const [info, setInfo] = useState<InfoNode[]>([]);
@@ -21,14 +20,14 @@ const CardGrid: React.FC = () => {
 	useEffect(() => {
 		axios
 			.get(`https://swapi.dev/api/people/?page=${page}`)
-			.then(response => {
+			.then((response) => {
 				console.log("response", response);
 				const name = response.data.results.filter((character: { name: string }) =>
 					character.name.toLowerCase().includes(query.toLowerCase())
 				);
 				setInfo(name);
 			})
-			.catch(error => {
+			.catch((error) => {
 				console.log("The data was not returned", error);
 			});
 	}, [query, page]);
@@ -39,17 +38,17 @@ const CardGrid: React.FC = () => {
 
 	return (
 		<div>
-			<h1 className="Header">React Wars</h1>
+			<h1 className='Header'>React Wars</h1>
 			<form>
 				<Input
-					type="text"
+					type='text'
 					onChange={handleInputChange}
 					value={query}
-					name="name"
-					tabIndex="0"
-					className="prompt search-name"
-					placeholder="search by name"
-					autoComplete="off"
+					name='name'
+					tabIndex='0'
+					className='prompt search-name'
+					placeholder='search by name'
+					autoComplete='off'
 				/>
 			</form>
 
@@ -57,16 +56,15 @@ const CardGrid: React.FC = () => {
 			<Button onClick={() => setPage(page + 1)}>Next</Button>
 
 			<Grid>
-				{info.map((item: InfoNode, index: number) => {
+				{info.map((item: InfoNode) => {
 					return (
 						<Character
-							key={index}
-							id={item.id}
+							key={item.id}
 							person={item.person}
-							birth_year={item.birth_year}
+							birthYear={item.birthYear}
 							height={item.height}
 							mass={item.mass}
-							skin_color={item.skin_color}
+							skinColor={item.skinColor}
 						/>
 					);
 				})}

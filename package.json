@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "tsc": "tsc",
-    "lint": "eslint ./",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "lint:fix": "yarn lint --fix"
   },
   "eslintConfig": {

@@ -1,40 +1,49 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb-typescript",
-        "airbnb",
-        "prettier"
-    ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2018,
-        "sourceType": "module",
-        "project": "./tsconfig.json"
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint",
-        "prettier"
-    ],
-    "rules": {
-        "prettier/prettier": [
-            "error",
-            {
-              "printWidth": 100,
-              "semi": true,
-              "useTabs": true
-            }
-          ]
-    }
+	"extends": ["airbnb-typescript", "airbnb", "prettier"],
+
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"project": "./tsconfig.json"
+	},
+	"plugins": ["react", "@typescript-eslint", "prettier"],
+	"rules": {
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
+		"indent": ["error", "tab"],
+		"react/jsx-indent-props": "off",
+		"@typescript-eslint/indent": "off",
+		"@typescript-eslint/quotes": ["error", "double"],
+		"@typescript-eslint/comma-dangle":"off",
+		"react/jsx-indent": "off",
+		"no-console": "off",
+		"no-undef":"off",
+		"prettier/prettier": [
+			"error",
+			{
+				"trailingCommas": "es5",
+				"printWidth": 100,
+				"semi": true,
+				"singleQuote": false,
+				"jsxSingleQuote": true,
+				"useTabs": true,
+				"tabWidth": 4,
+				"arrow-parens": true
+			}
+		],
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"js": "never",
+				"mjs": "never",
+				"jsx": "never",
+				"ts": "never",
+				"tsx": "never"
+			}
+		]
+	}
 }

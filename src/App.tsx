@@ -18,9 +18,9 @@ const App = () => {
 			<Container>
 				<Background>
 					<CardGrid />
-  </Background>
-  </Container>
-  </div>
+				</Background>
+			</Container>
+		</div>
 	);
 };
 
