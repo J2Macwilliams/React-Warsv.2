@@ -1,11 +1,11 @@
 import React from "react";
 
-import CardGrid from "./Components/cardGrid";
+import CardGrid from "./components/CardGrid";
 
-import { Container, Background } from "./Components/Styled";
+import { Container, Background } from "./components/Styled";
 import "./App.css";
 
-const App: React.FC = () => {
+const App = () => {
 	// Try to think through what state you'll need for this app before starting. Then build out
 	// the state properties here.
 
