@@ -5,11 +5,10 @@ import { Input, Button, Grid } from "./Styled";
 
 interface InfoNode {
 	id: number;
-	person: string;
-	birthYear: string;
+	name: string;
+	birth_year: string;
 	height: string;
 	mass: string;
-	skinColor: string;
 }
 
 const CardGrid: React.FC = () => {
@@ -60,11 +59,10 @@ const CardGrid: React.FC = () => {
 					return (
 						<Character
 							key={item.id}
-							person={item.person}
-							birthYear={item.birthYear}
+							name={item.name}
+							birthYear={item.birth_year}
 							height={item.height}
 							mass={item.mass}
-							skinColor={item.skinColor}
 						/>
 					);
 				})}
