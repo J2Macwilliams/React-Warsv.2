@@ -3,14 +3,14 @@ import axios from "axios";
 import Character from "./CharacterCard";
 import { Input, Button, Grid } from "./Styled";
 
-type InfoNode = {
+interface InfoNode {
 	id: number;
 	person: string;
 	birthYear: string;
 	height: string;
 	mass: string;
 	skinColor: string;
-};
+}
 
 const CardGrid: React.FC = () => {
 	const [info, setInfo] = useState<InfoNode[]>([]);
