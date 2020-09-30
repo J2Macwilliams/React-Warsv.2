@@ -14,7 +14,7 @@ const App = () => {
 	// sync up with, if any.
 
 	return (
-		<div className="App">
+		<div className='App'>
 			<Container>
 				<Background>
 					<CardGrid />
