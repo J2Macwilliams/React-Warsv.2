@@ -2,23 +2,16 @@ import * as React from "react";
 import { Card } from "./Styled";
 
 interface InfoNode {
-	person: string;
+	name: string;
 	birthYear: string;
 	height: string;
 	mass: string;
-	skinColor: string;
 }
 
-const CharacterCard: React.FC<InfoNode> = ({
-	person,
-	birthYear,
-	height,
-	mass,
-	skinColor,
-}: InfoNode) => {
+const CharacterCard: React.FC<InfoNode> = ({ name, birthYear, height, mass }: InfoNode) => {
 	return (
 		<Card>
-			<h2>{person}</h2>
+			<h2>{name}</h2>
 			<h3>
 				Birth Year:
 				{birthYear}
@@ -32,10 +25,6 @@ const CharacterCard: React.FC<InfoNode> = ({
 				Mass:
 				{mass}
 				kg
-			</h4>
-			<h4>
-				Skin tone:
-				{skinColor}
 			</h4>
 		</Card>
 	);
